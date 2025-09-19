@@ -1,18 +1,16 @@
 <template>
-  <div class="group relative transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-md">
-    <div class="aspect-square w-full overflow-hidden rounded-md bg-axis-neutral group-hover:opacity-75 lg:h-80">
-      <img :src="getImageUrl(product.image)" :alt="product.name" class="h-full w-full object-cover object-center" />
-    </div>
+  <div class="group relative">
+    <img :src="getImageUrl(product.image)" :alt="product.name" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
     <div class="mt-4 flex justify-between">
       <div>
-        <h3 class="text-sm text-axis-secondary">
+        <h3 class="text-sm text-gray-700">
           <router-link :to="`/product/${product.id}`">
             <span aria-hidden="true" class="absolute inset-0" />
             {{ product.name }}
           </router-link>
         </h3>
       </div>
-      <p class="text-sm font-medium text-axis-secondary">${{ product.price }}</p>
+      <p class="text-sm font-medium text-gray-900">${{ product.price }}</p>
     </div>
   </div>
 </template>

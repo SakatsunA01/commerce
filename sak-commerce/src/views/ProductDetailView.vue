@@ -1,36 +1,36 @@
 <template>
-  <div>
+  <div class="bg-white">
     <div v-if="product" class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <img :src="selectedImage" :alt="product.name" class="rounded-lg shadow-lg transition-opacity duration-300">
           <div class="mt-4 grid grid-cols-3 gap-4">
             <img v-for="(image, index) in product.images" :key="index" :src="getImageUrl(image)" :alt="product.name"
-              class="rounded-lg cursor-pointer border-2 hover:border-axis-accent transition-all  duration-300"
-              :class="{ 'border-axis-accent': selectedImage === getImageUrl(image) }"
+              class="rounded-lg cursor-pointer border-2 hover:border-indigo-600 transition-all  duration-300"
+              :class="{ 'border-indigo-600': selectedImage === getImageUrl(image) }"
               @click="selectedImage = getImageUrl(image)">
           </div>
         </div>
         <div>
-          <h1 class="text-3xl font-display font-bold text-axis-secondary">{{ product.name }}</h1>
-          <p class="text-2xl text-axis-secondary mt-2">${{ product.price }}</p>
-          <p class="text-axis-tertiary mt-4">{{ product.description }}</p>
+          <h1 class="text-3xl font-display font-bold text-gray-900">{{ product.name }}</h1>
+          <p class="text-2xl text-gray-900 mt-2">${{ product.price }}</p>
+          <p class="text-gray-500 mt-4">{{ product.description }}</p>
           <div class="mt-6">
-            <h3 class="text-sm font-medium text-axis-secondary">Color</h3>
+            <h3 class="text-sm font-medium text-gray-900">Color</h3>
             <div class="flex space-x-2 mt-2">
               <div v-for="(color, index) in ['#000000', '#FFFFFF', '#888888']" :key="index"
                 :style="{ backgroundColor: color }"
-                class="w-8 h-8 rounded-full border-2 border-gray-200 cursor-pointer hover:border-axis-accent"></div>
+                class="w-8 h-8 rounded-full border-2 border-gray-200 cursor-pointer hover:border-indigo-600"></div>
             </div>
           </div>
           <div class="mt-6">
-            <button @click="addToCart" :class="{ 'bg-green-500': addedToCart, 'bg-axis-accent': !addedToCart }"
+            <button @click="addToCart" :class="{ 'bg-green-500': addedToCart, 'bg-indigo-600 hover:bg-indigo-700': !addedToCart }"
               class="w-full text-white px-8 py-3 rounded-md font-medium transition-colors duration-300">{{ addedToCart ?
                 '¡Añadido!' : 'Añadir al carrito' }}</button>
           </div>
           <div class="mt-6 border-t border-gray-200 pt-4">
-            <h3 class="text-sm font-medium text-axis-secondary">Envío y Devoluciones</h3>
-            <p class="mt-2 text-sm text-axis-tertiary">Envío gratuito en 24/48 horas. Devoluciones gratuitas durante 30
+            <h3 class="text-sm font-medium text-gray-900">Envío y Devoluciones</h3>
+            <p class="mt-2 text-sm text-gray-500">Envío gratuito en 24/48 horas. Devoluciones gratuitas durante 30
               días.</p>
           </div>
         </div>
